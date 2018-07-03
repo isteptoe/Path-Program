@@ -39,4 +39,4 @@ int main() {
 
 
 //add pickupmoves when creating paths
-// this is a nother test
+// hi how are you?
