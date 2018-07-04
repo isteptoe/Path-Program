@@ -16,6 +16,9 @@ public:
    bool operator==(const Point a) const {
       return this->row == a.row && this->column == a.column;
    }
+   bool operator!=(Point a) {
+      return !(*this == a);
+   }
 private:
    int row;
    int column;

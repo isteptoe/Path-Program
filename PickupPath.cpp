@@ -28,8 +28,10 @@ int main() {
    }
    Path redPath = findRedPath(redStart, redPeople, redEnd);
    Path neutPath = findNeutPath(neutStart, neutPeople, neutEnd);
-   printMoves(redPath.getMoves(), missionNum, 'r');
-   printMoves(neutPath.getMoves(), missionNum, 'n');
+   setPickupPath(redPath, redPeople);
+   setPickupPath(neutPath, neutPeople);
+   printMoves(redPath, missionNum, 'r');
+   printMoves(neutPath, missionNum, 'n');
    cout << "Printing mission " << missionNum << ": \nRed Path" << endl;
    printTrack(redPath.getMoves(), redPeople, neutPeople, obs);
    cout << endl << "Neutral Path" << endl;
@@ -39,4 +41,4 @@ int main() {
 
 
 //add pickupmoves when creating paths
-// hi this is a test
+

@@ -45,8 +45,9 @@ public:
    bool operator==(Move a) {
       return this->getTwo().getColumn() == a.getOne().getColumn() && this->getTwo().getRow() == a.getOne().getRow();
    }
+
    bool operator!=(Move a) {
-      return !(*this == a);
+      return one != a.one || two != a.two;
    }
    Move switchDir() {
       swap(one, two);
