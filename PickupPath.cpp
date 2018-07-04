@@ -13,7 +13,7 @@ int main() {
    Move redStart(Point(7, 2), Point(6, 2));
    Move redEnd(Point(6, 1), Point(7, 1));
    Move neutStart(Point(7, 1), Point(6, 1));
-   Move neutEnd(Point(7, 2), Point(7, 3));
+   Move neutEnd(Point(6, 2), Point(7, 2));
 
    int missionNum = 0;
 

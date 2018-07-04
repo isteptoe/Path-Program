@@ -226,6 +226,7 @@ void neut(vector<Move> &temp, vector<Move> &testPath, vector<Move> &shortestPath
                testPath.insert(testPath.end(), temp.begin(), temp.end());
                temp = routeTo(D, end);
                testPath.insert(testPath.end(), temp.begin(), temp.end());
+               testPath.push_back(Move(Point(7, 2), Point(7, 3)));
                if (isFirst) {
                   isFirst = false;
                   shortestPath = testPath;

@@ -59,4 +59,6 @@ void printMoves(Path path, int missionNum, char color) {
    }
    cout << s.at(s.size() - 1) << " };" << endl;
    
+   cout << "const int " << ((color == 'r') ? "RED_STEPS_" : "NEUTRAL_STEPS_") << missionNum << " = " << v.size() << ";" << endl;
+
 }
