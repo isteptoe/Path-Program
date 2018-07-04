@@ -3,7 +3,7 @@
 
 
 enum dir {
-   NORTH, SOUTH, EAST, WEST
+   NORTH, EAST, SOUTH, WEST
 };
 
 dir direc(const Point a, const Point b) { // from a to b

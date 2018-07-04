@@ -42,20 +42,27 @@ void printMoves(Path path, int missionNum, char color) {
    vector<Move> v = path.getMoves();
    vector<string> s = path.getPickup();
    cout << "const char " << ((color == 'r') ? "RED_MISSION_" : "NEUTRAL_MISSION_") << missionNum << "[] = { ";
-   for (int i = 0; i < v.size() - 1; i++) {
-      if (v.at(i).getMoveDir() == NORTH) cout << "FORWARD, ";
-      else if (v.at(i).getMoveDir() == SOUTH) cout << "BACK, ";
-      else if (v.at(i).getMoveDir() == EAST) cout << "RIGHT, ";
-      else if (v.at(i).getMoveDir() == WEST) cout << "LEFT, ";
+   cout << "FORWARD, ";
+   dir curr;
+   dir next;
+   for (int i = 0; i < v.size() - 2; i++) {
+      curr = v.at(i).getMoveDir();
+      next = v.at(i + 1).getMoveDir();
+      if (curr == next) cout << "FORWARD, ";
+      else if (curr - next == -1 || curr - next == 3) cout << "RIGHT, ";
+      else if (curr - next == 1 || curr - next == -3) cout << "LEFT, ";
+      else cout << "BACK, ";
    }
-   if (v.at(v.size() - 1).getMoveDir() == NORTH) cout << "FORWARD };" << endl;
-   else if (v.at(v.size() - 1).getMoveDir() == SOUTH) cout << "BACK };" << endl;
-   else if (v.at(v.size() - 1).getMoveDir() == EAST) cout << "RIGHT };" << endl;
-   else if (v.at(v.size() - 1).getMoveDir() == WEST) cout << "LEFT };" << endl;
+   curr = v.at(v.size() - 2).getMoveDir();
+   next = v.at(v.size() - 1).getMoveDir();
+   if (curr == next) cout << "FORWARD }" << endl;
+   else if (curr - next == -1 || curr - next == 3) cout << "RIGHT }" << endl;
+   else if (curr - next == 1 || curr - next == -3) cout << "LEFT }" << endl;
+   else cout << "BACK }" << endl;
 
-  cout << "const char " << ((color == 'r') ? "RED_PICKUP_" : "NEUTRAL_PICKUP_") << missionNum << "[] = { ";
+   cout << "const char " << ((color == 'r') ? "RED_PICKUP_" : "NEUTRAL_PICKUP_") << missionNum << "[] = { ";
    for (int i = 0; i < v.size() - 1; i++) {
-   cout << s.at(i) << ", ";
+      cout << s.at(i) << ", ";
    }
    cout << s.at(s.size() - 1) << " };" << endl;
    
